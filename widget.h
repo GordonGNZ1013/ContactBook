@@ -12,6 +12,9 @@
 #include <QFileDialog>
 #include <QTextStream>
 #include <QHeaderView>
+#include <QDateTime>
+#include <QStandardPaths>
+#include <QDir>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -30,6 +33,8 @@ public:
 private slots:
     void addContact();        // 新增聯絡人
     void exportToTxt();       // 匯出到txt檔案
+    void importFromTxt();     // 從txt檔案匯入
+    void exitApplication();   // 結束應用程式
 
 private:
     Ui::Widget *ui;
@@ -42,8 +47,11 @@ private:
     QLineEdit *lineEdit_phone;
     QPushButton *btn_add;
     QPushButton *btn_export;
+    QPushButton *btn_import;
+    QPushButton *btn_exit;
     
     void setupUI();           // 設定UI介面
     void clearInputFields();  // 清空輸入欄位
+    void autoExportOnExit();  // 結束時自動匯出
 };
 #endif // WIDGET_H
